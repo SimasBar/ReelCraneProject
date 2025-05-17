@@ -2,11 +2,11 @@
 
 This was a project for uni course.
 
-Basic idea is a crane that picks up boxes and delivers them to designated location.
+Basic idea is that a crane picks up boxes and delivers them to designated location.
 
-Conveyor has sensors that detect if box is present, sends the signal to the PLC that sends a signal to the crane for pickup.
+Conveyor has sensors that detect if box is present, sends a signal to the PLC that a box is ready for pickup and PLC activates the crane controller.
 
-Communication between simulation and PLC is via modbus tcp.
+Communication between simulation and TwinCAT PLC is via modbus tcp.
 
 Conveyor and crane controllers were shoddily written in C, and then rewritten to python because of easier modbus support.
 
