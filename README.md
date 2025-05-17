@@ -14,7 +14,7 @@ It's janky and bad, but I made it and I guess that makes it better :^)
 
 ## Manufacturing system
 
-### Electrical diagram
+### Diagrams
 
 ![Alt text](./Pics/Conveyordiagram.png "Coneyor Diagram")
 
