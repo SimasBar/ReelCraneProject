@@ -1,10 +1,15 @@
 ## Introduction
 
 This was a project for uni course.
+
 Basic idea is a crane that picks up boxes and delivers them to designated location.
+
 Conveyor has sensors that detect if box is present, sends the signal to the PLC that sends a signal to the crane for pickup.
+
 Communication between simulation and PLC is via modbus tcp.
+
 Conveyor and crane controllers were shoddily written in C, and then rewritten to python because of easier modbus support.
+
 It's janky and bad, but I made it and I guess that makes it better :^)
 
 ## Manufacturing system
