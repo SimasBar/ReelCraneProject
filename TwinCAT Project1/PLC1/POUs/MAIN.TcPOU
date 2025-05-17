@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="MAIN" Id="{6b2787fe-8fc5-4486-a550-69e1f1fdb757}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	resetButton : BOOL;
+	buttonPressed : BOOL;
+	LAMP : BOOL; //Box is present in the pick up area
+	craneMoving : BOOL;
+	craneControllerStarted : BOOL;
+	craneIdle : BOOL;
+	beltMoving : BOOL;
+	beltStopped : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (buttonPressed = TRUE) THEN  // Start the belt which kicks off everything
+	GVL.mb_Input_Registers[0] := 1;
+	beltMoving := TRUE;
+END_IF
+//Box detection logic, box detected send the signal to the crane to start moving
+IF (GVL.mb_Output_Registers[0] = 1) THEN // Box detected
+	GVL.mb_Input_Registers[1] := 1; //Box detected, write to webots to start crane controller
+	beltStopped := TRUE;
+	beltMoving := FALSE;
+	LAMP := TRUE; // Box waiting for pickup
+	craneControllerStarted := TRUE;
+END_IF
+//Box detection logic, box is not present
+IF (GVL.mb_Output_Registers[0] = 0) THEN // No box detected
+	GVL.mb_Input_Registers[1] := 0; // No box idle crane
+	IF (GVL.mb_Input_Registers[0] = 1) THEN
+	beltMoving := TRUE;
+	beltStopped := FALSE;
+	END_IF
+	LAMP := FALSE; // No box waiting
+END_IF
+//Checking if the crane is moving
+IF (GVL.mb_Output_Registers[1] = 1) THEN
+	craneMoving := TRUE;
+	IF (craneControllerStarted = TRUE) THEN
+	craneIdle := FALSE;
+	END_IF
+END_IF
+//Checking if the crane is idle
+IF (GVL.mb_Output_Registers[1] = 0) THEN
+	craneMoving := FALSE;
+	IF (craneControllerStarted = TRUE) THEN
+	craneIdle := TRUE;
+	END_IF
+END_IF
+//Reset button
+IF (resetButton = TRUE) THEN
+	GVL.mb_Input_Registers[0] := 0;
+	GVL.mb_Input_Registers[1] := 0;
+	GVL.mb_Output_Registers[0] := 0;
+	GVL.mb_Output_Registers[1] := 0;
+	LAMP := FALSE;
+	craneMoving := FALSE;
+	craneControllerStarted := FALSE;
+	craneIdle := FALSE;
+	beltMoving := FALSE;
+	beltStopped := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="23" Count="1" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="64" Count="1" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="58" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="2" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="44" Count="3" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="69" Count="1" />
+      <LineId Id="43" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
