@@ -3,7 +3,7 @@
 ### Electrical diagram
 
 ![Alt text](./Pics/Conveyordiagram.png "Coneyor Diagram")
-Conveyordiag.png
+
 
 The conveyor is controlled internally by a STM32 microcontroller which interfaces with PLC,
 
@@ -12,7 +12,7 @@ It controls the state of conveyor and speed via M1 output to the motor VFD and t
 The microcontroller also interfaces with light sensors S1 and S2, for box detection. If box is detected it sends a signal to the PLC.
 
 ![Alt text](./Pics/Cranediagram.png "Crane Diagram")
-Crane diag.png
+
 
 Crane robot is controlled internally by a STM32 microcontroller as well.
 
@@ -33,7 +33,7 @@ Microcontroller also interfaces with PLC, it sends the state of the crane robot 
 ### Conveyer robot state diagram
 
 ![Alt text](./Pics/Conveyorstate.png "Coneyor State Diagram")
-Conveyordiag.png
+
 
 S1 – Idle state - conveyor STM is waiting for PLC command to start operation
 
@@ -53,8 +53,8 @@ S4 – Reset state – Resets to idle state.
 
 ### Crane robot state diagram
 
-![Alt text](./Pics/Cranesate.png "Crane State Diagram")
-Cranestatediag.png
+![Alt text](./Pics/Cranestate.png "Crane State Diagram")
+
 
 S1 – Idle state, crane STM is awaiting instructions from PLC to start operation.
 
@@ -77,14 +77,14 @@ If there’s no box present it will idle in it’s ready state.
 ### Block diagram
 
 ![Alt text](./Pics/Blockdiagram.png "Block Diagram")
-Blockdiagram.png
+
 
 ## Visualization
 
 ### Webots simulation
 
 ![Alt text](./Pics/WebotsStart.png "Webots start picture")
-Pic of webotsstart.png
+
 
 First state, robot awaiting instructions from PLC.
 
@@ -93,12 +93,12 @@ First state, robot awaiting instructions from PLC.
 Robot is moving to pick up the box.
 
 ![Alt text](./Pics/WebotsMove2.png "Webots move 2 picture")
-Pic of webots move2.png
+
 
 Robot is delivering crate to the drop location, another crate waiting for pick up.
 
 ![Alt text](./Pics/WebotsFin.png "Webots start picture")
-Pic of webotsEnd.png
+
 
 Finished state, crates were delivered to the designated location and robot is idle.
 
@@ -245,7 +245,7 @@ I only used Input and Output registers, but it would be possible to just use coi
 ## PLC HMI
 
 ![Alt text](./Pics/PLC_HMI.png "PLC HMI")
-Pic of plc hmi.png
+
 
 Human – machine interface consists of two buttons and six indicator lamps.
 
@@ -258,10 +258,10 @@ The indicators are for various states of operation – belt and crane movement, 
 ## Final state screenshots
 
 ![Alt text](./Pics/PLC_HMI_End.png "PLC HMI end state")
-Pic of hmi end.png  
+
 Final state of HMI visualition.  
 ![Alt text](./Pics/WebotsFin.png "Webots end state")
-pic of final state sim.png  
+ 
 Final state of simulation.
 
 ## Discussion
