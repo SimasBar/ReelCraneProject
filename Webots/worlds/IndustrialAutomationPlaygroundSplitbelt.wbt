@@ -1,0 +1,893 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pallet/protos/WoodenPallet.proto"
+
+WorldInfo {
+  basicTimeStep 8
+}
+Viewpoint {
+  orientation -0.2963431358436221 -0.032422048809248386 0.9545310663301532 3.3497128100739713
+  position 7.233370288974348 3.1037722843669355 6.137932853825405
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.334245 1.24675 7.77156e-16
+  floorSize 15 15
+}
+Solid {
+  children [
+    DEF FrameGrupe Group {
+      children [
+        DEF Base12 Pose {
+          translation 0 -0.5 2.15
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0.666667 0
+                roughness 1
+              }
+              geometry Box {
+                size 10 0.3 0.3
+              }
+            }
+          ]
+        }
+        DEF Rail121 Pose {
+          translation 0 -0.37 2.35
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry DEF FrameSienaGeo Box {
+                size 10 0.04 0.1
+              }
+            }
+          ]
+        }
+        DEF Rail122 Pose {
+          translation 0 -0.63 2.35
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry DEF FrameSienaGeo Box {
+                size 10 0.04 0.1
+              }
+            }
+          ]
+        }
+        DEF Base34 Pose {
+          translation 0 4 2.15
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0.666667 0
+                roughness 1
+              }
+              geometry Box {
+                size 10 0.3 0.3
+              }
+            }
+          ]
+        }
+        DEF Rail341 Pose {
+          translation 0 3.87 2.35
+          children [
+            DEF FrameSiena Shape {
+              appearance PBRAppearance {
+              }
+              geometry DEF FrameSienaGeo Box {
+                size 10 0.04 0.1
+              }
+            }
+          ]
+        }
+        DEF Rail342 Pose {
+          translation 0 4.13 2.35
+          children [
+            DEF FrameSiena Shape {
+              appearance PBRAppearance {
+              }
+              geometry DEF FrameSienaGeo Box {
+                size 10 0.04 0.1
+              }
+            }
+          ]
+        }
+        DEF Frame1 Pose {
+          translation 4.85 -0.5 1
+          children [
+            DEF FramePillar Shape {
+              appearance PBRAppearance {
+                baseColor 0.666667 0 1
+                roughness 1
+              }
+              geometry DEF FramePillarGeo Box {
+                size 0.3 0.3 2
+              }
+            }
+          ]
+        }
+        DEF Frame2 Pose {
+          translation -4.85 -0.5 1
+          children [
+            USE FramePillar
+          ]
+        }
+        DEF Frame3 Pose {
+          translation 4.85 4 1
+          children [
+            USE FramePillar
+          ]
+        }
+        DEF Frame4 Pose {
+          translation -4.85 4 1
+          children [
+            USE FramePillar
+          ]
+        }
+      ]
+    }
+  ]
+  name "FrameUp"
+  boundingObject USE FrameGrupe
+}
+Robot {
+  translation 0 0.15 0
+  children [
+    Emitter {
+      name "BeltEmitter"
+    }
+    DEF Laser_Pillar_2 Solid {
+      translation 1.35 0.5 0.5
+      rotation 1 0 0 4.692820414042842e-06
+      children [
+        DEF LaserPillarGroup2 Group {
+          children [
+            Pose {
+              translation -2.29545e-07 -0.1 0.34
+              rotation 0.5773566025010858 0.5773466025079705 0.577347602507282 -2.094395307179586
+              children [
+                SpotLight {
+                  attenuation 0 0 1
+                  beamWidth 0.01
+                  color 1 0 0
+                  cutOffAngle 0.01
+                  intensity 9
+                  castShadows TRUE
+                }
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.05
+                  }
+                }
+              ]
+            }
+            DEF LaserPillarShape Shape {
+              appearance DEF SensorPillarApp PBRAppearance {
+                baseColor 1 1 0.498039
+                roughness 1
+              }
+              geometry DEF SensorPillarGeo Box {
+                size 0.1 0.1 1
+              }
+            }
+          ]
+        }
+      ]
+      name "solid(2)"
+    }
+    DEF Laser_Pillar_1 Solid {
+      translation 1.8 0.5 0.5
+      rotation 1 0 0 4.692820414042842e-06
+      children [
+        DEF LaserPillarGroup1 Group {
+          children [
+            DEF LS1 Pose {
+              translation -2.29545e-07 -0.1 0.34
+              rotation 0.5773566025010858 0.5773466025079705 0.577347602507282 -2.094395307179586
+              children [
+                SpotLight {
+                  attenuation 0 0 1
+                  beamWidth 0.01
+                  color 1 0 0
+                  cutOffAngle 0.02
+                  intensity 9
+                  castShadows TRUE
+                }
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.05
+                  }
+                }
+              ]
+            }
+            DEF LaserPillarShape Shape {
+              appearance DEF SensorPillarApp PBRAppearance {
+                baseColor 1 1 0.498039
+                roughness 1
+              }
+              geometry DEF SensorPillarGeo Box {
+                size 0.1 0.1 1
+              }
+            }
+          ]
+        }
+      ]
+      name "solid(1)"
+    }
+    DEF Sensor_Pillar_2 Solid {
+      translation 1.35 -0.35 0.5
+      children [
+        Group {
+          children [
+            Pose {
+              translation 0 0.01 0.34
+              rotation 1 0 0 -1.5707953071795862
+              children [
+                LightSensor {
+                  rotation 0 1 0 -1.5707953071795862
+                  name "Pillar_LS2"
+                  lookupTable [
+                    0 1 0
+                    50 1000 0
+                  ]
+                  colorFilter 1 0 0
+                  occlusion TRUE
+                }
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.01
+                  }
+                }
+              ]
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 1 0.498039
+                roughness 1
+              }
+              geometry Box {
+                size 0.1 0.1 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF Sensor_Pillar_1 Solid {
+      translation 1.8 -0.35 0.5
+      children [
+        DEF SensorPillarGroup Group {
+          children [
+            Pose {
+              translation 0 0.01 0.34
+              rotation 1 0 0 -1.5707953071795862
+              children [
+                LightSensor {
+                  rotation 0 1 0 -1.5707953071795862
+                  name "Pillar_LS1"
+                  lookupTable [
+                    0 1 0
+                    50 1000 0
+                  ]
+                  colorFilter 1 0 0
+                  occlusion TRUE
+                }
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.01
+                  }
+                }
+              ]
+            }
+            DEF SensorPillarShape Shape {
+              appearance DEF SensorPillarApp PBRAppearance {
+                baseColor 1 1 0.498039
+                roughness 1
+              }
+              geometry DEF SensorPillarGeo Box {
+                size 0.1 0.1 1
+              }
+            }
+          ]
+        }
+      ]
+      name "LightSensorPillar"
+      boundingObject USE SensorPillarGeo
+    }
+    Track {
+      translation -9.436107348751072e-18 -1.734723475976807e-18 0.4471119360001253
+      rotation -0.007730416543141564 -0.999970119883624 3.4375619198015664e-10 6.573495069815004e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/rubber/dotted_rubber_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/rubber/dotted_rubber_roughness.jpg"
+              ]
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/rubber/dotted_rubber_normal.jpg"
+              ]
+            }
+            occlusionMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/rubber/dotted_rubber_occlusion.jpg"
+              ]
+            }
+            textureTransform TextureTransform {
+              scale 19.6 2
+              translation -0.2671020408163239 0
+            }
+          }
+          geometry DEF BELT_BO Box {
+            size 4.9 0.5 0.3
+          }
+        }
+      ]
+      boundingObject USE BELT_BO
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "belt_motor"
+          maxVelocity 0.5
+          sound ""
+        }
+      ]
+      textureAnimation 0.2040816326530612 0
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_base_color.jpg"
+          ]
+        }
+        roughnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_roughness.jpg"
+          ]
+        }
+        metalnessMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_metalness.jpg"
+          ]
+        }
+        normalMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_normal.jpg"
+          ]
+        }
+        occlusionMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/corrugated_metal/corrugated_metal_occlusion.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 2 2
+        }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            2.48 -0.28 0
+            2.48 -0.28 0.61
+            -2.48 -0.28 0.61
+            -2.48 -0.28 0
+            2.48 0.28 0
+            2.48 0.28 0.61
+            -2.48 0.28 0.61
+            -2.48 0.28 0
+            2.45 -0.25 0.61
+            2.45 0.25 0.61
+            -2.45 0.25 0.61
+            -2.45 -0.25 0.61
+            2.45 -0.25 0.6
+            2.45 0.25 0.6
+            -2.45 0.25 0.6
+            -2.45 -0.25 0.6
+          ]
+        }
+        texCoord TextureCoordinate {
+          point [
+            0 0
+            1 0
+            1 1
+            0 1
+            0 0.24596774193548387
+            1 0.24596774193548387
+            0 0.24596774193548387
+            0.11290322580645162 0.24596774193548387
+            0.11290322580645162 0
+            0 0
+            0.001 0
+            0.001 0.001
+            0 0.001
+          ]
+        }
+        coordIndex [
+          0, 1, 2, 3, -1, 4, 7, 6, 5, -1, 0, 4, 5, 1, -1, 7, 3, 2, 6, -1, 1, 5, 9, 8, -1, 5, 6, 10, 9, -1, 6, 2, 11, 10, -1, 2, 1, 8, 11, -1, 0, 3, 7, 4, -1, 8, 9, 13, 12, -1, 9, 10, 14, 13, -1, 10, 11, 15, 14, -1, 11, 8, 12, 15, -1
+        ]
+        texCoordIndex [
+          1, 5, 4, 0, -1, 0, 1, 5, 4, -1, 0, 8, 7, 6, -1, 0, 8, 7, 6, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1, 9, 10, 11, 12, -1
+        ]
+      }
+    }
+  ]
+  name "Conveyer"
+  boundingObject Group {
+    children [
+      Pose {
+        translation 2.4650000000000003 0 0.305
+        children [
+          Box {
+            size 0.03 0.56 0.61
+          }
+        ]
+      }
+      Pose {
+        translation -2.4650000000000003 0 0.305
+        children [
+          Box {
+            size 0.03 0.56 0.61
+          }
+        ]
+      }
+      Pose {
+        translation 0 -0.265 0.305
+        children [
+          Box {
+            size 4.9 0.03 0.61
+          }
+        ]
+      }
+      Pose {
+        translation 0 0.265 0.305
+        children [
+          Box {
+            size 4.9 0.03 0.61
+          }
+        ]
+      }
+    ]
+  }
+  controller "BeltV3Python"
+  controllerArgs [
+    "0.5"
+    "0"
+  ]
+  window "<none>"
+}
+Robot {
+  translation 0 0 -0.07
+  rotation -1 0 0 0
+  children [
+    Receiver {
+      name "CraneReceiver"
+    }
+    DEF GantryPillars Group {
+      children [
+        DEF Bridge Pose {
+          translation 0 1.75 3.65
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 0.6 4.8 0.3
+              }
+            }
+          ]
+        }
+        DEF Bridge12 Pose {
+          translation 0 -0.5 3.65
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 2 0.3 0.3
+              }
+            }
+          ]
+        }
+        DEF Bridge34 Pose {
+          translation 0 4 3.65
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 2 0.3 0.3
+              }
+            }
+          ]
+        }
+        DEF Pillar1 Pose {
+          translation 0.85 -0.5 3
+          children [
+            DEF GantryPillar Shape {
+              appearance PBRAppearance {
+                roughness 1
+              }
+              geometry Box {
+                size 0.3 0.3 1
+              }
+            }
+          ]
+        }
+        DEF Pillar2 Pose {
+          translation -0.85 -0.5 3
+          children [
+            USE GantryPillar
+          ]
+        }
+        DEF Pillar3 Pose {
+          translation 0.85 4 3
+          children [
+            USE GantryPillar
+          ]
+        }
+        DEF Pillar4 Pose {
+          translation -0.85 4 3
+          children [
+            USE GantryPillar
+          ]
+        }
+      ]
+    }
+    DEF Wheel1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.0529643339474637e-07
+        axis 0 -1 0
+        anchor 0.85 -0.5 2.55
+      }
+      device [
+        RotationalMotor {
+          name "wheel1motor"
+          minPosition -5
+          maxPosition 5
+          maxTorque 1000
+        }
+      ]
+      endPoint Solid {
+        translation 0.85 -0.5 2.55
+        rotation 0 1 0 1.032382731180714e-07
+        children [
+          DEF Wheel1Pose Pose {
+            rotation -1 0 0 1.57
+            children [
+              DEF WheelShape Shape {
+                appearance DEF WheelApp PBRAppearance {
+                  baseColor 0 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry DEF WheelGeo Cylinder {
+                  height 0.2
+                  radius 0.3
+                }
+              }
+            ]
+          }
+        ]
+        name "wheel1"
+        boundingObject USE Wheel1Pose
+        physics DEF Wheelphysics Physics {
+        }
+      }
+    }
+    DEF Wheel2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.053309504560186e-07
+        axis 0 -1 0
+        anchor -0.85 -0.5 2.55
+      }
+      device [
+        RotationalMotor {
+          name "wheel2motor"
+          minPosition -5
+          maxPosition 5
+          maxTorque 1000
+        }
+      ]
+      endPoint Solid {
+        translation -0.85 -0.5 2.55
+        rotation 0 1 0 1.032382731180714e-07
+        children [
+          DEF Wheel2Pose Pose {
+            rotation -1 0 0 1.57
+            children [
+              USE WheelShape
+            ]
+          }
+        ]
+        name "wheel2"
+        boundingObject USE Wheel2Pose
+        physics USE Wheelphysics
+      }
+    }
+    DEF Wheel3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.144821857334912e-07
+        axis 0 -1 0
+        anchor 0.85 4 2.55
+      }
+      device [
+        RotationalMotor {
+          name "wheel3motor"
+          minPosition -5
+          maxPosition 5
+          maxTorque 1000
+        }
+      ]
+      endPoint Solid {
+        translation 0.85 4 2.55
+        rotation 0 -0.9999999999999999 0 1.57000031448222
+        children [
+          DEF Wheel3Pose Pose {
+            rotation 1 0 0 1.57
+            children [
+              USE WheelShape
+            ]
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Wheel3Pose
+        physics USE Wheelphysics
+      }
+    }
+    DEF Wheel4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position -3.1458460495780863e-07
+        axis 0 -1 0
+        anchor -0.85 4 2.55
+      }
+      device [
+        RotationalMotor {
+          name "wheel4motor"
+          minPosition -5
+          maxPosition 5
+          maxTorque 1000
+        }
+      ]
+      endPoint Solid {
+        translation -0.849999999999999 4 2.55
+        rotation 0 -1 0 1.5699996854153953
+        children [
+          DEF Wheel4Pose Pose {
+            rotation 1 0 0 1.57
+            children [
+              USE WheelShape
+            ]
+          }
+        ]
+        name "solid(5)"
+        boundingObject USE Wheel4Pose
+        physics USE Wheelphysics
+      }
+    }
+    DEF BridgeSlider SliderJoint {
+      jointParameters JointParameters {
+        axis 0 -1 0
+        minStop -2
+        maxStop 2
+      }
+      device [
+        LinearMotor {
+          name "bridgemotor"
+          minPosition -2
+          maxPosition 2
+          maxForce 10000
+        }
+      ]
+      endPoint Solid {
+        translation 0 1.799999845980101 3.61
+        rotation 0 0 1 1.57
+        children [
+          DEF TurretHinge HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+            }
+            device [
+              RotationalMotor {
+                name "turretmotor"
+              }
+            ]
+            endPoint Solid {
+              translation 0 0 0.030000000000000013
+              rotation 0 0 1 1.5699999999999996
+              children [
+                DEF Turret Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.4
+                    radius 0.4
+                  }
+                }
+                DEF LiftJoint SliderJoint {
+                  jointParameters JointParameters {
+                    axis 0 0 -1
+                  }
+                  device [
+                    LinearMotor {
+                      name "liftmotor"
+                      maxVelocity 1
+                      maxPosition 2
+                      maxForce 40000
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 0 0.82
+                    rotation 0 1 0 1.01503e-06
+                    children [
+                      DEF PistonGroup Group {
+                        children [
+                          DEF Baseplate Pose {
+                            translation 0 0 -1.8
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0.666667 0 1
+                                }
+                                geometry Box {
+                                  size 1 0.5 0.1
+                                }
+                              }
+                            ]
+                          }
+                          DEF Cylinder Pose {
+                            children [
+                              DEF Cylinder Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0.666667 0
+                                  roughness 1
+                                  metalness 0
+                                }
+                                geometry Cylinder {
+                                  height 3.5
+                                  radius 0.2
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                      DEF Gripper1 SliderJoint {
+                        jointParameters JointParameters {
+                          position 2.104612932257646e-07
+                          axis -1 0 0
+                          maxStop 0.5
+                        }
+                        device [
+                          LinearMotor {
+                            name "gripper1"
+                            maxForce 100
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.44999978953870673 0 -2.1
+                          children [
+                            DEF Gripper1 Shape {
+                              appearance PBRAppearance {
+                                baseColor 1 0 0
+                              }
+                              geometry Box {
+                                size 0.1 0.5 0.5
+                              }
+                            }
+                          ]
+                          name "solid(2)"
+                          boundingObject USE Gripper1
+                          physics Physics {
+                          }
+                        }
+                      }
+                      DEF Gripper2 SliderJoint {
+                        jointParameters JointParameters {
+                          position 1.331232141750089e-07
+                          axis 1 0 0
+                        }
+                        device [
+                          LinearMotor {
+                            name "gripper2"
+                            maxPosition 0.5
+                            maxForce 100
+                          }
+                        ]
+                        endPoint Solid {
+                          translation -0.4499998668767858 0 -2.1
+                          children [
+                            DEF Gripper2 Shape {
+                              appearance PBRAppearance {
+                                baseColor 1 0 0
+                              }
+                              geometry Box {
+                                size 0.1 0.5 0.5
+                              }
+                            }
+                          ]
+                          name "solid(3)"
+                          boundingObject USE Gripper2
+                          physics Physics {
+                          }
+                        }
+                      }
+                    ]
+                    name "solid(1)"
+                    boundingObject USE PistonGroup
+                    physics Physics {
+                    }
+                  }
+                }
+              ]
+              boundingObject USE Turret
+              physics Physics {
+              }
+            }
+          }
+        ]
+        name "BridgeSlider"
+        boundingObject Box {
+          size 1 0.1 0.1
+        }
+        physics Physics {
+        }
+      }
+    }
+  ]
+  name "Crane"
+  boundingObject USE GantryPillars
+  physics Physics {
+  }
+  controller "CraneControllerPythonModbus"
+}
+WoodenBox {
+  translation -2.05 0.15 0.879902
+  rotation -0.8798887285413949 -0.47513991341235384 -0.006155328448454327 3.3647376495452696e-17
+  name "wooden box(1)"
+  size 0.5 0.5 0.5
+  mass 1
+}
+WoodenBox {
+  translation -0.25 0.15 0.879902
+  rotation -0.8798887285413949 -0.47513991341235384 -0.006155328448454327 3.3647376495452696e-17
+  name "wooden box(2)"
+  size 0.5 0.5 0.5
+  mass 1
+}
+WoodenPallet {
+  translation -1.5 3.4 0
+}
